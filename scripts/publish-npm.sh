@@ -9,7 +9,6 @@ git add -A
 git commit
 
 cp -r README.md ./lib
-cd lib
 version=v$1
 git tag $version
 npm publish --access public --verbose
