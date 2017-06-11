@@ -10,7 +10,7 @@
     "babel-preset-stage-3": "^6.24.1"
   },
   "name": "console-like-string-format",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
