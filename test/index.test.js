@@ -1,6 +1,6 @@
 // import format from '../lib/console-like-format'
-const format = require('../dist/console-like-string-format')
-//  import format from '../lib/console-like-format'
+// const format = require('../dist/console-like-string-format')
+ import format from '../lib/index'
 const {expect} = require('chai')
 
 describe('%c', function () {
@@ -73,6 +73,6 @@ describe('%f', function () {
 
 describe('all in one', function () {
   it('', function () {
-    expect(format('abcd %%f %%ss %o %d %i', '100.3', 'foo', {a: 1, b: '1'}, 100, 100.10, 1000, {a: 1})).equal('abcd %100.3 %foos {"a":1,"b":"1"} 100 100 1000 {"a":1}')
+    expect(format('abcd %%f %%ss %o %d %i', '100.3', 'foo', {a: 1, b: '1'}, 100, 100.10, 1000, {a: 1})).equal('abcd %f %ss "100.3" NaN NaN 100 100.1 1000 {"a":1}')
   })
 })
