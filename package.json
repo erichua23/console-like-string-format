@@ -11,7 +11,7 @@
     "babel-preset-stage-3": "^6.24.1"
   },
   "name": "console-like-string-format",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
