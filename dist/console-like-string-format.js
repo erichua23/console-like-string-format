@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -72,7 +82,8 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "format", function() { return format; });
+function format () {
   const argumentArray = Array.from(arguments)
   const firstArg = argumentArray.shift(1)
 
@@ -81,46 +92,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   let hasPercentSign = false
   while (i < firstArg.length) {
     const token = firstArg[i]
-    if (hasPercentSign && ['c', 's', 'i', 'd', 'f', 'O', 'o'].indexOf(token) > -1) {
-      hasPercentSign = false
-      if ('c' === token) {
-        // ignore %c
-        argumentArray.shift()
-      } else if ('s' === token) {
-        resultString += argumentArray.shift()
-      } else if ('o' === token.toLowerCase()) {
-        resultString += JSON.stringify(argumentArray.shift())
-      } else if ('i' === token || 'd' === token) {
-        let val = ''
-        try {
-          val = parseInt(argumentArray.shift())
-        } catch (e){
-          console.warn(e)
+    if (hasPercentSign) {
+      if (['c', 's', 'i', 'd', 'f', 'O', 'o', '%'].indexOf(token) > -1) {
+        hasPercentSign = false
+        if ('c' === token) {
+          // ignore %c
+          argumentArray.shift()
+        } else if ('s' === token) {
+          resultString += argumentArray.shift()
+        } else if ('o' === token.toLowerCase()) {
+          resultString += JSON.stringify(argumentArray.shift())
+        } else if ('i' === token || 'd' === token) {
+          let val = ''
+          try {
+            val = parseInt(argumentArray.shift())
+          } catch (e) {
+            console.warn(e)
+          }
+          resultString += '' + val
+        } else if ('f' === token) {
+          let val = ''
+          try {
+            val = parseFloat(argumentArray.shift())
+          } catch (e) {
+            console.warn(e)
+          }
+          resultString += '' + val
+        } else if ('%' === token) {
+          resultString += '' + '%'
+          hasPercentSign = false
         }
-        resultString += '' + val
-      } else if ('f' === token) {
-        let val = ''
-        try {
-          val = parseFloat(argumentArray.shift())
-        } catch (e){
-          console.warn(e)
-        }
-        resultString += '' + val
-      } else if ('%' === token) {
-        resultString += '' + '%'
+      } else {
+        resultString += '' + '%' + token
         hasPercentSign = true
       }
-      i++
     } else if ('%' === token) {
-      if (hasPercentSign) {
-        resultString += '%'
-      }
       hasPercentSign = true
-      i++
     } else {
       resultString += '' + token
-      i++
     }
+    i++
   }
 
   if (argumentArray.length > 0) {
@@ -131,8 +142,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   }
 
   return resultString
-});
+}
+
+
 
 
 /***/ })
 /******/ ]);
+});

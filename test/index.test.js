@@ -1,6 +1,4 @@
-// import format from '../lib/console-like-format'
-// const format = require('../dist/console-like-string-format')
- import format from '../lib/index'
+const {format} = require('../dist/console-like-string-format')
 const {expect} = require('chai')
 
 describe('%c', function () {

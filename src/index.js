@@ -1,4 +1,4 @@
-export default function () {
+function format () {
   const argumentArray = Array.from(arguments)
   const firstArg = argumentArray.shift(1)
 
@@ -57,4 +57,8 @@ export default function () {
   }
 
   return resultString
+}
+
+export {
+  format
 }
