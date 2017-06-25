@@ -17,7 +17,15 @@ console.log(format('abcd %%f %%ss %o %d %i', '100.3', 'foo', {a: 1, b: '1'}, 100
 
 
 **Supported Types**
-// TODO 
+
+说明符 | 输出
+--- | --- 
+%s | 将值格式化为字符串
+%i | 或 %d	将值格式化为整型
+%f | 将值格式化为浮点值
+%o | 将值JSON.stringify以后输出
+%O | 将值JSON.stringify以后输出
+%c | 占用一个参数，并忽略此占位符
 
 
 You can get much more detail example in the unit test case(./test/index.test.js)
